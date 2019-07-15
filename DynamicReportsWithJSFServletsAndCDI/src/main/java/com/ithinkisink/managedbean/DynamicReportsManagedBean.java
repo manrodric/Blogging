@@ -18,6 +18,7 @@ import javax.servlet.ServletContext;
 import net.sf.dynamicreports.report.exception.DRException;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
+import com.ithinkisink.model.Constancia;
 import com.ithinkisink.model.InvoiceDetails;
 import com.ithinkisink.model.Item;
 
@@ -38,7 +39,8 @@ public class DynamicReportsManagedBean implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		invoiceName="Invoice.jrxml";
+//		invoiceName="Invoice.jrxml";
+		invoiceName="constancia.jrxml";
 		
 		List<Item> itemList = new ArrayList<>(Arrays.asList(
 				new Item("01", "Item 01 description", 1.1, 1), 
@@ -46,9 +48,16 @@ public class DynamicReportsManagedBean implements Serializable {
 				new Item("03", "Item 03 description", 3.3, 3)));
 		beanCollectionDataSource = new JRBeanCollectionDataSource(itemList);
 		
-		parameters = (new InvoiceDetails("INV#01", "Billing Company", "Billing Company Add", 
-				"Billing Company State 1", "Billing Company State 2", 
-				"Shipping Name", "Shipping Address", "Shipping State 1", "Shipping State 2", 1000)).toMap();
+//		parameters = (new InvoiceDetails("INV#01", "Billing Company", "Billing Company Add", 
+//				"Billing Company State 1", "Billing Company State 2", 
+//				"Shipping Name", "Shipping Address", "Shipping State 1", "Shipping State 2", 1000)).toMap();
+		
+		parameters = (new Constancia("190713253239", "0000001107552", "13/07/2019 14:10:28", 
+				"11-01-2558990", "ERLITA CORDOVA FERNANDEZ", 
+				"Prueba de transferencia interbancarias en linea persona natural prueba de soporte cien caracteres",
+				"002-193-191153780123-12", "BANCO DE CREDITO DEL PERU", "PEREZ LOPEZ JUAN","Otro Cliente","Soles","S/ 100.00",
+				"S/2.50","S/7.00","S/0.45","S/0.00")).toMap();
+		
 	}
 	
 	/**
