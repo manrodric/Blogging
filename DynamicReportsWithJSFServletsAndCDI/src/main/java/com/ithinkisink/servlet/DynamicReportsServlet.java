@@ -27,7 +27,7 @@ public class DynamicReportsServlet extends HttpServlet {
 			throws ServletException, IOException {
 		resp.setContentType("application/pdf");
 		OutputStream out = resp.getOutputStream();
-		out = dynamicReportsManagedBean.getOS(getServletContext(), out);
+//		out = dynamicReportsManagedBean.getOS(getServletContext(), out);
 		out.close();
 	}
 	
